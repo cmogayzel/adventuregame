@@ -1,6 +1,6 @@
-### Adventure game project ###
-### By Charles Mogayzel
-### 01/24/2022
+#Adventure game project
+#By Charles Mogayzel
+#01/24/2022
 
 import time
 import random
@@ -26,14 +26,14 @@ def zombieSuprise():
 
 def zombieAttack(randomItem,options): 
        pause_print("You enter the cabin with your " + randomItem + " and attack the zombie.")
-       if randomItem == "stick":
+       if randomItem == "stick" :
            pause_print("You are killed by the zombie " + randomItem + " was not enough to defeat the zombie.")
            pause_print("The end")
-       elif randomItem == "axe":
+       elif randomItem == "axe" :
             pause_print("Your " + randomItem + " defeats the zombine and you have enough food and firewood to survive winter.")
             
 
-def walkaround():
+def walkaround() :
      pause_print("You walk around the cabin to find there is a zombie in the cabin.")
      pause_print("what do you do?")
      pause_print("Enter 1 to enter cabin.")
@@ -78,11 +78,11 @@ def play_again():
         play_again()
 
 
-def gamePlay():
-    randomItem = random.choice(["stick","axe"])
-    option = random.choice(["soldier","hunter","survivalist","park ranger"])
-    intro(randomItem,option)
-    cabin(randomItem,option)
+def  gamePlay():
+       randomItem = random.choice(["stick","axe"])
+       option = random.choice(["soldier","hunter","survivalist","park ranger"])
+       intro(randomItem,option)
+       cabin(randomItem,option)
 
 
 gamePlay()
