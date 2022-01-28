@@ -3,6 +3,7 @@
 #01/24/2022
 
 
+from email import message
 import time
 import random
 
@@ -20,14 +21,11 @@ def intro(item, option):
     pause_print(message,2)
 
 def zombieSuprise():
-         pause_print("You enter the cabin and are surpised by a zombie.",1)
-         pause_print("You are killed by the zombie.",1)
-         pause_print("The end",1)
-       
+         message = ("You enter the cabin and are surpised by a zombie.\n"
+         "You are killed by the zombie." "The end.\n" )
+         pause_print(message,2)
 
 def zombieAttack(randomItem,option): 
-       pause_print("Random: " + randomItem,5)
-       pause_print("Option: " + option,5)
        pause_print("You enter the cabin with your " + randomItem + " and attack the zombie.",2)
        if randomItem == "stick" :
            pause_print("You are killed by the zombie " + randomItem + " was not enough to defeat the zombie.",2)
@@ -36,17 +34,17 @@ def zombieAttack(randomItem,option):
             pause_print("Your " + randomItem + " defeats the zombine and you have enough food and firewood to survive winter.")
             
 def walkaround(randomItem,option) :
-     pause_print("You walk around the cabin to find there is a zombie in the cabin.",2)
-     pause_print("what do you do?",2)
-     pause_print("Enter 1 to enter cabin.",2)
-     pause_print("Enter 2 walk away and find another cabin.",0)
-     choice = input("Enter 1 or 2 ")
-     while True :
+    message = ("You walk around the cabin to find there is a zombie in the cabin."
+    "what do you do?\n" "Enter 1 to enter cabin.\n"
+    "Enter 2 walk away and find another cabin.")
+    pause_print(message,2)
+    choice = input("Enter 1 or 2 ")
+    while True :
           if choice == "1":
               zombieAttack(randomItem, option)
               break
           elif choice == "2":
-            message("You chose to move on and find another cabin that doesn't a zombie in it.\n"
+            message = ("You chose to move on and find another cabin that doesn't a zombie in it.\n"
             "Your choice causes you to freeze and not find another cabin.\n"
             "The end.\n")
             pause_print(message,2)
@@ -55,9 +53,8 @@ def walkaround(randomItem,option) :
              pause_print("Error, you did choose 1 or 2. ",2)
 
 def cabin(randomItem,option):
-    pause_print("Enter 1 to enter cabin.",1)
-    pause_print("Enter 2 to peer into cabin.",1)
-    pause_print("What would you like to do? ",1)
+    message = ("Enter 1 to enter cabin.\n" "Enter 2 to peer into cabin.\n" "What would you like to do?\n")
+    pause_print(message,1)
     while True:
         choice = input("(Please enter 1 or 2 ): ")
         if choice == "1":
@@ -86,6 +83,5 @@ def  gamePlay():
     option = random.choice(["soldier" , "hunter" , "survivalist" , "park ranger"])
     intro(randomItem, option)
     cabin(randomItem, option)
-
 
 gamePlay()
